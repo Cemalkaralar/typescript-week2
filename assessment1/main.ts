@@ -1,16 +1,19 @@
 // Use type and mentioned in the name of the variable
 // Assign an appropriate value
-const aNumber: any = null;
-const aString: any = null;
-const aBigInt: any = null;
-const anArray: any = null
-const anUnknown: any = null;
-const anObject: any = null;
-const aTuple: any = null;
-const anEnum: any = null;
+const aNumber: number = 1234;
+const aString: string = "mystring";
+const aBigInt: bigint = 100n;
+const anArray: Array<string> = ["a","b"]
+const anUnknown: unknown = null;
+const anObject: object = {name:"cemal"};
+const aTuple: [number, string] = [1, "Steve"];
+const anEnum: {} = {}
 
+  
 // Implement this function any type accordingly
-function isEven(number): any {
+function isEven(number:number): boolean {
+
+    return(number % 2 == 0)
 
 }
 
@@ -20,31 +23,35 @@ type Person = {
 }
 
 type Developer = {
-    role: string
+    role: "devops"
 }
 
-const jane: any = {
+const jane: Person = {
     name: 'Jane'
 }
 
-const joe: any = {
-    role: 'Devops'
+const joe: Developer = {
+    role: 'devops'
 }
 
-const people: any[] =  [
-    jane, joe
+const people: [Person,Developer] =  [
+   { name:"Jane"},{ role: "devops"}
 ]
 
 function printPeople(people: any[]): any {
     // Print the name of person or the role in this function
+    return console.log([
+        {name:"Jane"},
+        {role:"Jane"}
+    ])
 }
 
 // Type the encrpyt function correctly
 const encryptText = (plainText: any, shift: any) => {
     let cipherArr: any[] = []
-    let cipherLetter
+    let cipherLetter: string
 
-    plainText.split("").map(letter => {
+    plainText.split("").map((letter: any) => {
       let code = letter.charCodeAt(letter)
       if(letter === " ") {
         return cipherArr.push(letter)
@@ -91,8 +98,8 @@ function doBelgianThings(belgian: Belgian): void
     belgian.eatChocolate();
 }
 
-module.exports = {
+export {
     isEven,
-    print,
+    printPeople,
     encryptText
 };
